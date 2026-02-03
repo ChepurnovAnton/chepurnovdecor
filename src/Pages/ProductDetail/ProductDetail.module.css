@@ -1,0 +1,589 @@
+/* ========================================== */
+/* КОМПОНЕНТ ДЕТАЛИ ТОВАРА - НОВЫЙ ДИЗАЙН */
+/* ========================================== */
+
+.container {
+  padding: 70px 20px;
+}
+
+/* ========================================== */
+/* ОСНОВНОЙ МАКЕТ ТОВАРА */
+/* ========================================== */
+
+.product {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+  /* Расстояние между изображением и информацией */
+  align-items: start;
+}
+
+/* ========================================== */
+/* ЛЕВАЯ ЧАСТЬ - ИЗОБРАЖЕНИЯ */
+/* ========================================== */
+
+.imageSection {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.mainImageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70vh;
+  background-color: #f5f5f5;
+  /* border-radius: 16px; */
+  overflow: hidden;
+  flex: 1;
+}
+
+.productImage {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* border-radius: 16px; */
+}
+
+/* Кнопки навигации изображений */
+.prevButton,
+.nextButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.prevButton:hover,
+.nextButton:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prevButton {
+  left: 15px;
+}
+
+.nextButton {
+  right: 15px;
+}
+
+/* Миниатюры изображений - вертикально слева */
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 100px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnail:hover {
+  border-color: #ddd;
+  transform: scale(1.05);
+}
+
+.thumbnail.active {
+  border-color: #000;
+}
+
+/* ========================================== */
+/* ПРАВАЯ ЧАСТЬ - ИНФОРМАЦИЯ */
+/* ========================================== */
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Название товара */
+.title {
+  font-size: 36px;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+
+/* Контейнер цены */
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* ========================================== */
+/* АККОРДЕОНЫ */
+/* ========================================== */
+
+.accordion {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordionHeader {
+  width: 100%;
+  padding: 16px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  transition: background-color 0.3s;
+}
+
+.accordionHeader:hover {
+  background-color: #f9f9f9;
+}
+
+.accordionIcon {
+  display: inline-flex;
+  transition: transform 0.3s;
+  font-size: 12px;
+}
+
+.accordionIcon.expanded {
+  transform: rotate(180deg);
+}
+
+.accordionContent {
+  padding: 16px;
+  background-color: #fafafa;
+  border-top: 1px solid #e0e0e0;
+}
+
+.accordionContent p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ========================================== */
+/* КАТЕГОРИИ */
+/* ========================================== */
+
+.categoriesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.categoriesLabel {
+  font-weight: 600;
+  color: #000;
+  font-size: 14px;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.categoryBadge {
+  background-color: #f0f0f0;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #666;
+}
+
+/* ========================================== */
+/* БЕЙДЖ ПОПУЛЯРНОСТИ */
+/* ========================================== */
+
+.popularBadge {
+  background-color: #fffacd;
+  color: #333;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ========================================== */
+/* СЕКЦИЯ ДЕЙСТВИЙ */
+/* ========================================== */
+
+.actionSection {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 20px 0;
+}
+
+/* Контроль количества */
+.quantityControl {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 44px;
+}
+
+.quantityBtn {
+  background: none;
+  border: none;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  color: #000;
+}
+
+.quantityBtn:hover {
+  background-color: #f0f0f0;
+}
+
+.quantityInput {
+  border: none;
+  width: 50px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.quantityInput:focus {
+  outline: none;
+}
+
+/* Кнопки действий */
+.actionButtons {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.cartBtn {
+  flex: 1;
+  padding: 12px 24px;
+  border: 2px solid #000;
+  background-color: white;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cartBtn:hover {
+  background-color: #f0f0f0;
+}
+
+.buyBtn {
+  flex: 1;
+  padding: 12px 24px;
+  border: none;
+  background-color: #000;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buyBtn:hover {
+  background-color: #333;
+}
+
+/* ========================================== */
+/* ИНФОРМАЦИЯ О ДОСТАВКЕ (в аккордеоне) */
+/* ========================================== */
+
+.shippingGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.shippingItem {
+  display: flex;
+  gap: 12px;
+}
+
+.shippingIcon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.shippingLabel {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.shippingValue {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* ========================================== */
+/* ОШИБКА - ТОВАР НЕ НАЙДЕН */
+/* ========================================== */
+
+.notFound {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.notFound h2 {
+  font-size: 24px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.backButton {
+  display: inline-block;
+  margin-bottom: 30px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.backButton:hover {
+  background-color: #e0e0e0;
+  border-color: #000;
+}
+
+/* ========================================== */
+/* МОДАЛЬНОЕ ОКНО ДЛЯ УВЕЛИЧЕННОГО ИЗОБРАЖЕНИЯ */
+/* ========================================== */
+
+.imageModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.enlargedImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.modalClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalClose:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.modalPrevButton,
+.modalNextButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  font-size: 30px;
+  padding: 16px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 1001;
+  transition: background-color 0.3s;
+}
+
+.modalPrevButton:hover,
+.modalNextButton:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.modalPrevButton {
+  left: 20px;
+}
+
+.modalNextButton {
+  right: 20px;
+}
+
+/* ========================================== */
+/* АДАПТИВНЫЙ ДИЗАЙН */
+/* ========================================== */
+
+@media (max-width: 1024px) {
+  .product {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .imageSection {
+    flex-direction: column;
+  }
+
+  .mainImageContainer {
+    height: 400px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .productImage {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Скрыть стрелочки на планшетах */
+  .prevButton,
+  .nextButton {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 16px;
+    margin-top: 20px;
+  }
+
+  .product {
+    gap: 30px;
+  }
+
+  .imageSection {
+    flex-direction: column;
+  }
+
+  .thumbnails {
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+  }
+
+  .mainImageContainer {
+    height: 300px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .price {
+    font-size: 24px;
+  }
+
+  .infoSection {
+    gap: 16px;
+  }
+
+  .backButton {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  /* Скрыть стрелочки на мобильных */
+  .prevButton,
+  .nextButton {
+    display: none;
+  }
+}

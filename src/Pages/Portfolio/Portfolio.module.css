@@ -1,0 +1,19 @@
+.portfolioSection {
+    margin-top: 100px;
+    padding: 0 20px;
+}
+
+.portfolioTitle {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+
+
+.portfolio {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+
+}

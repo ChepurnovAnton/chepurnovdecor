@@ -1,0 +1,157 @@
+.card {
+  display: grid;
+  grid-template-rows: 1fr min-content min-content min-content;
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Обертка для изображения с иконкой лупы */
+.imageWrapper {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  background-color: rgba(181, 181, 181, 0.253);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* При наведении на карточку изображение масштабируется */
+.imageWrapper:hover .img {
+  transform: scale(1.08);
+}
+
+/* Иконка лупы */
+.searchIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0);
+  /* Полностью прозрачно по умолчанию */
+  opacity: 0;
+  /* Иконка скрыта по умолчанию */
+  transition: all 0.3s ease;
+}
+
+/* При наведении иконка лупы становится видна */
+.imageWrapper:hover .searchIcon {
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Затемняющий слой */
+  opacity: 1;
+  /* Иконка видна при наведении */
+}
+
+.name {
+  font-weight: 600;
+  padding-top: 10px;
+  color: rgb(34, 34, 34);
+  font-size: 20px;
+}
+
+.price {
+  font-weight: 500;
+  padding-top: 5px;
+  color: rgb(255, 255, 255);
+  background-color: #ff6f61;
+  width: fit-content;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 16px;
+  margin-top: 10px;
+}
+
+.popular {
+  position: absolute;
+  background-color: #ff6f61;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  top: 10px;
+  left: 10px;
+}
+/* Адаптивные стили для планшетов и мобильных */
+@media (max-width: 1024px) {
+  .card {
+    height: 400px;
+  }
+
+  .img {
+    height: 400px;
+  }
+
+  .name {
+    font-size: 18px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    height: 300px;
+  }
+
+  .img {
+    height: 300px;
+  }
+
+  .name {
+    font-size: 16px;
+    padding-top: 8px;
+  }
+
+  .price {
+    font-size: 14px;
+    padding: 8px;
+    margin-top: 8px;
+  }
+
+  .popular {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    height: 300px;
+  }
+
+  .img {
+    height: 300px;
+  }
+
+  .name {
+    font-size: 14px;
+    padding-top: 6px;
+  }
+
+  .price {
+    font-size: 12px;
+    padding: 6px;
+    margin-top: 6px;
+  }
+
+  .popular {
+    font-size: 10px;
+    padding: 3px 6px;
+    top: 6px;
+    left: 6px;
+  }
+}

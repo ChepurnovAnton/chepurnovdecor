@@ -1,0 +1,24 @@
+.catalog {
+  padding: 0 100px 0 100px;
+}
+
+/* Планшеты (768px - 1024px) */
+@media (max-width: 1024px) {
+  .catalog {
+    padding: 0 50px;
+  }
+}
+
+/* Большие смартфоны (480px - 768px) */
+@media (max-width: 768px) {
+  .catalog {
+    padding: 0 20px;
+  }
+}
+
+/* Маленькие смартфоны (до 480px) */
+@media (max-width: 480px) {
+  .catalog {
+    padding: 0 16px;
+  }
+}

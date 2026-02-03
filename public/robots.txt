@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /private
+
+Sitemap: https://chepurnov-decor.ru/sitemap.xml
+
+# Правила для крупных поисковых движков
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandexbot
+Allow: /
+
+# Задержка между запросами
+Crawl-delay: 1

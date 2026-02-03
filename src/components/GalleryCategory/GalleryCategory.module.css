@@ -1,0 +1,41 @@
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 50px;
+  margin-top: 100px;
+  padding: 0 20px;
+}
+
+/* Планшеты (768px - 1024px) */
+@media (max-width: 1024px) {
+  .categories {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 40px;
+    margin-top: 80px;
+  }
+}
+
+/* Большие смартфоны (480px - 768px) */
+@media (max-width: 768px) {
+  .categories {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+    margin-bottom: 30px;
+    margin-top: 60px;
+    padding: 0 10px;
+  }
+}
+
+/* Маленькие смартфоны (до 480px) */
+@media (max-width: 480px) {
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px;
+    margin-top: 50px;
+    padding: 0 8px;
+  }
+}

@@ -1,0 +1,252 @@
+.aboutText {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555555;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+  margin-top: 90px;
+}
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 50px;
+  justify-content: space-between;
+}
+
+.featureImg {
+  grid-column-start: 2;
+  grid-row: 1 / 3;
+  background-color: #ff6f61;
+  border-radius: 16px;
+  width: 100%;
+  height: 700px;
+}
+
+.featureImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.aboutTitle {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.aboutName {
+  font-size: 24px;
+  font-weight: 500;
+  font-weight: 600;
+}
+
+.aboutDescription {
+  font-size: 16px;
+  color: #555555;
+  font-weight: 500;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.features {
+  grid-column-start: 1;
+  grid-row-start: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* row-gap: 20px; */
+  align-self: end;
+}
+
+.featureNumber {
+  font-size: 48px;
+  font-weight: 700;
+  color: #ff6f61;
+}
+
+.featureText {
+  font-size: 18px;
+  margin-top: 10px;
+  /* text-align: center; */
+  font-weight: 500;
+}
+
+.portfolioButton {
+  margin-top: 40px;
+  padding: 12px 24px;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 20px;
+}
+
+.catalogButton {
+  margin-top: 40px;
+  padding: 12px 24px;
+  background-color: #a4a4a4;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* ========================================== */
+/* АДАПТИВНЫЙ ДИЗАЙН */
+/* ========================================== */
+
+@media (max-width: 1024px) {
+  .aboutContent {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 40px;
+  }
+
+  .featureImg {
+    grid-column-start: 1;
+    grid-row: auto;
+    height: 400px;
+  }
+
+  .features {
+    grid-column-start: 1;
+    grid-row: auto;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .aboutText {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutContent {
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .aboutTitle {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .aboutName {
+    font-size: 20px;
+  }
+
+  .aboutDescription {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .aboutText {
+    gap: 12px;
+  }
+
+  .featureImg {
+    height: 300px;
+  }
+
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .featureNumber {
+    font-size: 36px;
+  }
+
+  .featureText {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .buttonGroup {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .portfolioButton,
+  .catalogButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutContent {
+    gap: 24px;
+    padding: 0 16px;
+  }
+
+  .aboutTitle {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  .aboutName {
+    font-size: 18px;
+  }
+
+  .aboutDescription {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .aboutText {
+    gap: 10px;
+  }
+
+  .featureImg {
+    display: none;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .featureNumber {
+    font-size: 32px;
+  }
+
+  .featureText {
+    font-size: 13px;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .portfolioButton,
+  .catalogButton {
+    margin-top: 16px;
+    padding: 10px 16px;
+    font-size: 14px;
+    width: 100%;
+  }
+}
