@@ -2,18 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import About from "../../components/About/About";
-import SEO from "../../components/SEO/SEO";
 
 const Home = () => {
   return (
     <>
-      <SEO
-        title="Chepurnov Decor - Декоративная штукатурка и отделка интерьеров"
-        description="Профессиональные услуги декоративной штукатурки и внутренней отделки. Более 12 лет опыта, более 500 завершенных проектов. Работаем в Барнауле и Алтайском крае."
-        keywords="декоративная штукатурка, отделка интерьера, внутренние работы, покрытия, Барнаул, Алтайский край"
-        url="https://chepurnov-decor.ru"
-        type="website"
-      />
+      
       <div className={styles.home}>
         <div className={styles.hero}>
               <div className={styles.heroInner}>

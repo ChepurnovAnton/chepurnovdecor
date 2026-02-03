@@ -2,7 +2,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useGetGalleryQuery } from '../../store/api';
 import styles from './ProductDetail.module.css';
-import SEO from '../../components/SEO/SEO';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -51,14 +50,6 @@ const ProductDetail = () => {
 
   return (
     <>
-      <SEO
-        title={`${product.name} - Chepurnov Decor`}
-        description={product.description || `Профессиональное покрытие ${product.name}. Цена: ${product.price}₽. Качественная декоративная штукатурка для интерьера.`}
-        keywords={`${product.name}, декоративная штукатурка, отделка, покрытие, цена`}
-        image={product.picture?.[0]?.url || "https://chepurnov-decor.ru/og-image.jpg"}
-        url={`https://chepurnov-decor.ru/product/${product.id}`}
-        type="product"
-      />
       <div className={styles.container}>
         <button
           onClick={() => {

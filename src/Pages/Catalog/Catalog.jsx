@@ -3,7 +3,7 @@ import Gallery from "../../components/Gallery/Gallery";
 import GalleryCategory from "../../components/GalleryCategory/GalleryCategory";
 import { GalleryLoadingSkeleton, CategoriesLoadingSkeleton } from "../../components/LoadingSkeleton/LoadingSkeleton";
 import { useGetGalleryQuery, useGetCategorysQuery } from "../../store/api";
-import SEO from "../../components/SEO/SEO";
+
 
 const Catalog = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
@@ -23,13 +23,6 @@ const Catalog = () => {
 
   return (
     <>
-      <SEO
-        title="Каталог декоративных покрытий - Chepurnov Decor"
-        description="Каталог декоративных штукатурок и внутренних покрытий. Более 100+ видов текстур. Профессиональное качество и долговечность."
-        keywords="каталог декоративной штукатурки, виды покрытий, текстуры, отделка"
-        url="https://chepurnov-decor.ru/catalog"
-        type="website"
-      />
       <>
         {/* Показываем скелетон категорий при загрузке, иначе компонент категорий */}
         {categoriesIsLoading ? (

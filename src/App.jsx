@@ -8,7 +8,7 @@ import ProductDetail from './Pages/ProductDetail/ProductDetail'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import { useEffect } from 'react'
-import { HelmetProvider } from 'react-helmet-async'
+
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,7 +30,6 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <HelmetProvider>
       <Router>
         <ScrollToTop />
         <div className='conteiner'>
@@ -47,7 +46,6 @@ function App() {
           <Footer />
         </div>
       </Router>
-    </HelmetProvider>
   )
 }
 
