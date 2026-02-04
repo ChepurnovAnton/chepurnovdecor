@@ -8,7 +8,7 @@
   flex-direction: column;
   gap: 10px;
   padding-top: 20px;
-  margin-top: 90px;
+  margin-top: 50px;
 }
 
 .aboutContent {
@@ -78,7 +78,7 @@
   font-size: 18px;
   margin-top: 10px;
   /* text-align: center; */
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .portfolioButton {
@@ -91,7 +91,19 @@
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(255, 111, 97, 0.3);
+}
+
+.portfolioButton:hover {
+  background-color: #ff5a47;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(255, 111, 97, 0.4);
+}
+
+.portfolioButton:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(255, 111, 97, 0.3);
 }
 
 .buttonGroup {
@@ -109,7 +121,19 @@
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(164, 164, 164, 0.3);
+}
+
+.catalogButton:hover {
+  background-color: #8f8f8f;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(164, 164, 164, 0.4);
+}
+
+.catalogButton:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(164, 164, 164, 0.3);
 }
 
 /* ========================================== */
@@ -180,6 +204,7 @@
 
   .featureText {
     font-size: 14px;
+    font-weight: 500;
     margin-top: 8px;
   }
 

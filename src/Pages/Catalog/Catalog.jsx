@@ -3,14 +3,18 @@ import Gallery from "../../components/Gallery/Gallery";
 import GalleryCategory from "../../components/GalleryCategory/GalleryCategory";
 import { GalleryLoadingSkeleton, CategoriesLoadingSkeleton } from "../../components/LoadingSkeleton/LoadingSkeleton";
 import { useGetGalleryQuery, useGetCategorysQuery } from "../../store/api";
-
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import Pagination from "../../components/Pagination/Pagination";
 
 const Catalog = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+  
   const { data, error, isLoading } = useGetGalleryQuery();
   const { data: categoriesData, error: categoriesError, isLoading: categoriesIsLoading } = useGetCategorysQuery();
 
-  if (error || categoriesError) return <p>Ошибка загрузки данных.</p>;
+  if (error || categoriesError) return <ErrorMessage />;
 
   const filteredData = selectedCategoryId
     ? {
@@ -20,6 +24,24 @@ const Catalog = () => {
         ),
       }
     : data;
+
+  // Расчитываем общее количество страниц
+  const totalItems = filteredData?.data?.length ?? 0;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  // Сбрасываем страницу на 1 при смене категории
+  const handleCategoryChange = (categoryId) => {
+    setSelectedCategoryId(categoryId);
+    setCurrentPage(1);
+  };
+
+  // Скролим к верхушке при смене страницы
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 0);
+  };
 
   return (
     <>
@@ -31,7 +53,7 @@ const Catalog = () => {
           <GalleryCategory
             categories={categoriesData?.data}
             selectedCategoryId={selectedCategoryId}
-            onSelectCategory={setSelectedCategoryId}
+            onSelectCategory={handleCategoryChange}
           />
         )}
         
@@ -39,7 +61,18 @@ const Catalog = () => {
         {isLoading ? (
           <GalleryLoadingSkeleton />
         ) : (
-          <Gallery items={filteredData} />
+          <>
+            <Gallery 
+              items={filteredData} 
+              currentPage={currentPage}
+              itemsPerPage={itemsPerPage}
+            />
+            <Pagination 
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </>
         )}
       </>
     </>

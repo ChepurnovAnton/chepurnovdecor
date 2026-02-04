@@ -34,7 +34,7 @@ const GalleryCard = ({ id, url, name, price, popular }) => {
       </div>
       {popular && <span className={styles.popular}>Популярное покрытие</span>}
       <h3 className={styles.name}>{name}</h3>
-      <span className={styles.price}>от {price}₽/м2</span>
+      <span className={styles.price}>от {price} ₽/м²</span>
     </article>
     </Link>
   );

@@ -6,6 +6,7 @@
 .portfolioTitle {
     font-size: 32px;
     font-weight: 700;
+    text-transform: uppercase;
 }
 
 
@@ -13,7 +14,40 @@
 .portfolio {
     margin-top: 50px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
 
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .portfolioSection {
+        margin-top: 80px;
+        padding: 0 18px;
+    }
+    .portfolioTitle {
+        font-size: 28px;
+    }
+    .portfolio {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+        margin-top: 40px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .portfolioSection {
+        margin-top: 60px;
+        padding: 0 16px;
+    }
+    .portfolioTitle {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+    .portfolio {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 28px;
+    }
 }

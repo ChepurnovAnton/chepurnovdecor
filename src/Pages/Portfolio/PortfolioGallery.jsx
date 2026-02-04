@@ -2,13 +2,17 @@ import React, { useState, useEffect, useCallback } from "react"
 import { useLocation, useParams, useNavigate } from "react-router-dom"
 import styles from "./PortfolioGallery.module.css"
 import { useGetPortfolioQuery } from "../../store/api"
+import { MdOutlineZoomOutMap } from "react-icons/md";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 const PortfolioGallery = () => {
   const { id } = useParams()
   const location = useLocation()
   const navigate = useNavigate()
   const stateItem = location.state && location.state.item
-  const { data, isLoading, isError } = useGetPortfolioQuery()
+  const { data, isLoading, isError } = useGetPortfolioQuery();
+  
+  // Импорт ErrorMessage добавится отдельно
 
   let item = stateItem
   if (!item && data && data.data) {
@@ -50,7 +54,7 @@ const PortfolioGallery = () => {
   }, [modalOpen, showPrev, showNext])
 
   if (isLoading) return <p>Загрузка...</p>
-  if (isError) return <p>Ошибка загрузки данных.</p>
+  if (isError) return <ErrorMessage />;
   if (!item) return <p>Элемент не найден.</p>
 
   return (
@@ -71,6 +75,9 @@ const PortfolioGallery = () => {
                 alt={`${item.title || item.name} ${idx + 1}`}
                 onClick={() => openModal(idx)}
               />
+              <div className={styles.imageOverlay}>
+                <MdOutlineZoomOutMap color='white' size={50} />
+              </div>
             </div>
           )
         })}

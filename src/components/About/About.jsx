@@ -10,15 +10,26 @@ const About = () => {
           <div className={styles.aboutText}>
             <span className={styles.aboutName}>Меня зовут Чепурнов Антон</span>
             <span className={styles.aboutDescription}>
-              Я предоставляю услуги по нанесению декоративных покрытий и
-              покраске безвоздушным способом.
+              Я предоставляю услуги по нанесению <b>декоративных покрытий</b> и
+              <b> покраске безвоздушным способом</b>.
             </span>
             <span className={styles.aboutDescription}>
               В работе я использую материалы премиального качества марок:
-              Derufa, Decorazza, что гарантирует высокое качество результата.
+              <b> Derufa</b> и <b>Decorazza</b>, что гарантирует высокое
+              качество результата.
             </span>
             <span className={styles.aboutDescription}>
-              Большой выбор фактур под любой стиль и помещения
+              Большой выбор фактур под любой стиль и помещения:{" "}
+              <b>венецианская, марроканская, травертин, бетон, шелк</b> и многое
+              другое.
+            </span>
+            <span className={styles.aboutDescription}>
+              <b>Бесплатная консультация и замер</b>, а также помощь в подборе
+              фактуры и цвета.
+            </span>
+            <span className={styles.aboutDescription}>
+              При необходимости делаю <b>подготовку поверхности</b> для декоративных
+              покрытий.
             </span>
             <span className={styles.aboutDescription}>
               Вся работа выполняется мной лично, никаких посредников и
@@ -42,7 +53,7 @@ const About = () => {
         <div className={styles.features}>
           <div className={styles.feature}>
             <span className={styles.featureNumber}>12</span>
-            <span className={styles.featureText}>Лет на рынке</span>
+            <span className={styles.featureText}>Лет опыта</span>
           </div>
           <div className={styles.feature}>
             <span className={styles.featureNumber}>500+</span>

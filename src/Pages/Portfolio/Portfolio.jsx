@@ -3,13 +3,14 @@ import styles from "./Portfolio.module.css";
 import PortfolioCard from "../../components/PortfolioCard/PortfolioCard";
 import { useGetPortfolioQuery } from "../../store/api";
 import { GalleryLoadingSkeleton } from "../../components/LoadingSkeleton/LoadingSkeleton";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 
 const Portfolio = () => {
 
     const { data, isLoading, isError } = useGetPortfolioQuery();
-    if (isLoading) return <GalleryLoadingSkeleton />;
-    if (isError) return <p>Ошибка загрузки данных.</p>;
+    if (isLoading) return <section className={styles.portfolioSection}><GalleryLoadingSkeleton /></section>;
+    if (isError) return <ErrorMessage />;
 
     console.log(data.data);
     

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BsInstagram, BsFacebook, BsTwitterX, BsYoutube } from 'react-icons/bs';
+import { BiLogoTelegram } from "react-icons/bi";
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -10,12 +11,16 @@ const Footer = () => {
         <div className={styles.leftSection}>
           <h2 className={styles.brandName}>Chepurnov Decor</h2>
           <p className={styles.description}>
-            Я предлагаю широкий спектр услуг по декоративной штукатурке и отделке, от простых работ до полного преобразования интерьера вашего дома.
+            Я предоставляю услуги профессионального нанесения декоративных покрытий и механизированной покраске.
+            Широкий ассортимент материалов и индивидуальный подход к каждому проекту гарантируют высокое качество и долговечность результата.
           </p>
           {/* СОЦИАЛЬНЫЕ ИКОНКИ */}
           <div className={styles.socialLinks}>
-            <a href="https://instagram.com" className={styles.socialIcon} aria-label="Instagram">
+            <a href="https://www.instagram.com/noise_a/" className={styles.socialIcon} aria-label="Instagram" target='blank'>
               <BsInstagram size={20} />
+            </a>
+            <a href="https://t.me/chepurnovdecor" className={styles.socialIcon} aria-label="Telegram" target='blank'>
+              <BiLogoTelegram size={25} />
             </a>
 
           </div>
@@ -55,8 +60,8 @@ const Footer = () => {
             </p>
             <p className={styles.contactItem}>
               <span className={styles.label}>Телефон:</span>
-              <a href="tel:+79999999999" className={styles.contactLink}>
-                +7 (999) 999-99-99
+              <a href="tel:+79952161807" className={styles.contactLink}>
+                +7 (995) 216-18-07
               </a>
             </p>
           </div>
