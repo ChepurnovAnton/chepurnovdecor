@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer'
 import Catalog from './Pages/Catalog/Catalog'
 import Portfolio from './Pages/Portfolio/Portfolio'
 import PortfolioGallery from './Pages/Portfolio/PortfolioGallery'
+import CommercialPage from './Pages/CommercialPage/CommercialPage'
 import ProductDetail from './Pages/ProductDetail/ProductDetail'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Home from './Pages/Home/Home'
@@ -41,6 +42,7 @@ function App() {
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/portfolio/:id" element={<PortfolioGallery />} />
+              <Route path="/commercial" element={<CommercialPage />} />
             </Routes>
           </div>
           <Footer />

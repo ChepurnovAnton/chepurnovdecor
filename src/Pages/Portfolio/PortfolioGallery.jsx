@@ -75,9 +75,7 @@ const PortfolioGallery = () => {
                 alt={`${item.title || item.name} ${idx + 1}`}
                 onClick={() => openModal(idx)}
               />
-              <div className={styles.imageOverlay}>
-                <MdOutlineZoomOutMap color='white' size={50} />
-              </div>
+
             </div>
           )
         })}

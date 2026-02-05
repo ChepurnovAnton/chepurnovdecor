@@ -4,7 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 import { BsTelephone } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
-import { FaInstagram, FaFacebook, FaWhatsapp, FaVimeo } from "react-icons/fa";
+import { BsInstagram } from "react-icons/bs";
+import { BiLogoTelegram } from "react-icons/bi";
 
 // Адаптивный мобильный хедер с бургер-меню
 // - На десктопе (> 768px): стандартное горизонтальное меню
@@ -60,7 +61,6 @@ const Header = () => {
         <div className={styles.content}>
           <Link to="/" className={styles.title} onClick={closeMenu}>
             <div className={styles.logo}>
-              {/* <img src="public/logo.svg" alt="" /> */}
               <svg
                 id="Слой_1"
                 data-name="Слой 1"
@@ -151,6 +151,9 @@ const Header = () => {
             <Link to="/portfolio" className={styles.navLink}>
               Портфолио
             </Link>
+            <Link to="/commercial" className={styles.navLink}>
+              Дизайнерам и прорабам
+            </Link>
             <div className={styles.navLink}>
               <div className={styles.phoneContainer}>
                 <BsTelephone />
@@ -185,6 +188,14 @@ const Header = () => {
               >
                 Портфолио
               </Link>
+              <Link
+                to="/commercial"
+                className={styles.mobileMenuItem}
+                onClick={closeMenu}
+              >
+                Дизайнерам и прорабам
+              </Link>
+              
               <a
                 href="tel:+79952161807"
                 className={styles.mobileMenuItem}
@@ -197,40 +208,20 @@ const Header = () => {
             {/* Социальные сети в мобильном меню */}
             <div className={styles.socialLinks}>
               <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.socialLink}
-                title="Instagram"
+                href="https://www.instagram.com/noise_a/"
+                className={styles.socialIcon}
+                aria-label="Instagram"
+                target="blank"
               >
-                <FaInstagram />
+                <BsInstagram size={20} color="black"/>
               </a>
               <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.socialLink}
-                title="Facebook"
+                href="https://t.me/chepurnovdecor"
+                className={styles.socialIcon}
+                aria-label="Telegram"
+                target="blank"
               >
-                <FaFacebook />
-              </a>
-              <a
-                href="https://wa.me/79952161807"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.socialLink}
-                title="WhatsApp"
-              >
-                <FaWhatsapp />
-              </a>
-              <a
-                href="https://vimeo.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.socialLink}
-                title="Vimeo"
-              >
-                <FaVimeo />
+                <BiLogoTelegram size={25} color="black" />
               </a>
             </div>
           </nav>

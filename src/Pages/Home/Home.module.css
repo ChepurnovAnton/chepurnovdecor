@@ -5,19 +5,19 @@
 }
 
 .hero {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-top: -60px;
+  /* width: 100vw; */
+  /* margin-left: calc(-50vw + 50%); */
+  margin-top: -45px;
   height: 100vh;
   overflow: visible;
   position: relative;
   z-index: 1;
-  padding: 15px; /* небольшой отступ вокруг внутреннего блока */
+  /* padding: 15px;  */
 }
 
 .heroInner {
-  width: 100%;
-  height: calc(100vh - 48px); /* учитываем padding */
+  /* width: 100%; */
+  height: calc(100vh - 48px); 
   border-radius: 16px;
   overflow: hidden;
   position: relative;
@@ -25,6 +25,7 @@
 }
 
 .heroImage {
+  
   width: 100%;
   height: 100%;
   object-fit: cover;

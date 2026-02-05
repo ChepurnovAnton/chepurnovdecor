@@ -15,7 +15,7 @@ const About = () => {
             </span>
             <span className={styles.aboutDescription}>
               В работе я использую материалы премиального качества марок:
-              <b> Derufa</b> и <b>Decorazza</b>, что гарантирует высокое
+              <b> Derufa</b>, что гарантирует высокое
               качество результата.
             </span>
             <span className={styles.aboutDescription}>
@@ -24,12 +24,15 @@ const About = () => {
               другое.
             </span>
             <span className={styles.aboutDescription}>
+              Регулярное обновление текстур, которые соответсвуют современным тенденциям в дизайне интерьеров.
+            </span>
+            <span className={styles.aboutDescription}>
               <b>Бесплатная консультация и замер</b>, а также помощь в подборе
               фактуры и цвета.
             </span>
             <span className={styles.aboutDescription}>
-              При необходимости делаю <b>подготовку поверхности</b> для декоративных
-              покрытий.
+              При необходимости делаю <b>подготовку поверхности</b> для
+              декоративных покрытий.
             </span>
             <span className={styles.aboutDescription}>
               Вся работа выполняется мной лично, никаких посредников и

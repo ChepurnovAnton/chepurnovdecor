@@ -209,9 +209,11 @@
 
 /* Социальные сети в мобильном меню */
 .socialLinks {
+
   display: flex;
   gap: 16px;
   justify-content: center;
+  align-items: center;
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid #e0e0e0;

@@ -17,7 +17,7 @@ const PortfolioCard = ({ id, item, title, description, images }) => {
     <article className={styles.portfolioCard} onClick={handleOpen} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter') handleOpen(); }}>
         <div className={styles.portfolioCardContent}>
             <h3 className={styles.portfolioCardTitle}>{title}</h3>
-            <p className={styles.portfolioCardDescription}>{description}</p>   
+            {/* <p className={styles.portfolioCardDescription}>{description}</p>    */}
         </div>
         <img className={styles.portfolioCardImage}  src={image} alt="Portfolio Card Image" />
     </article>

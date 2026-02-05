@@ -8,7 +8,12 @@
   flex-direction: column;
   gap: 10px;
   padding-top: 20px;
-  margin-top: 50px;
+  /* margin-top: 10px; */
+}
+
+.about {
+  margin-bottom: 100px;
+  padding: 0 0 0 40px;
 }
 
 .aboutContent {
@@ -166,6 +171,12 @@
 }
 
 @media (max-width: 768px) {
+
+  .about {
+  margin-bottom: 0;
+  padding: 0;
+}
+
   .aboutContent {
     gap: 30px;
     padding: 0 20px;

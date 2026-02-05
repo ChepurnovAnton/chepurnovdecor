@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import { BsInstagram, BsFacebook, BsTwitterX, BsYoutube } from 'react-icons/bs';
+import { Link } from "react-router-dom";
+import { BsInstagram } from "react-icons/bs";
 import { BiLogoTelegram } from "react-icons/bi";
-import styles from './Footer.module.css';
+import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
@@ -11,18 +11,29 @@ const Footer = () => {
         <div className={styles.leftSection}>
           <h2 className={styles.brandName}>Chepurnov Decor</h2>
           <p className={styles.description}>
-            Я предоставляю услуги профессионального нанесения декоративных покрытий и механизированной покраске.
-            Широкий ассортимент материалов и индивидуальный подход к каждому проекту гарантируют высокое качество и долговечность результата.
+            Я предоставляю услуги профессионального нанесения декоративных
+            покрытий и механизированной покраске. Широкий ассортимент материалов
+            и индивидуальный подход к каждому проекту гарантируют высокое
+            качество и долговечность результата.
           </p>
           {/* СОЦИАЛЬНЫЕ ИКОНКИ */}
           <div className={styles.socialLinks}>
-            <a href="https://www.instagram.com/noise_a/" className={styles.socialIcon} aria-label="Instagram" target='blank'>
+            <a
+              href="https://www.instagram.com/noise_a/"
+              className={styles.socialIcon}
+              aria-label="Instagram"
+              target="blank"
+            >
               <BsInstagram size={20} />
             </a>
-            <a href="https://t.me/chepurnovdecor" className={styles.socialIcon} aria-label="Telegram" target='blank'>
+            <a
+              href="https://t.me/chepurnovdecor"
+              className={styles.socialIcon}
+              aria-label="Telegram"
+              target="blank"
+            >
               <BiLogoTelegram size={25} />
             </a>
-
           </div>
         </div>
 
@@ -32,13 +43,24 @@ const Footer = () => {
             <h3 className={styles.columnTitle}>Навигация</h3>
             <ul className={styles.linksList}>
               <li>
-                <Link to="/" className={styles.link}>Главная</Link>
+                <Link to="/" className={styles.link}>
+                  Главная
+                </Link>
               </li>
               <li>
-                <Link to="/catalog" className={styles.link}>Каталог</Link>
+                <Link to="/catalog" className={styles.link}>
+                  Каталог
+                </Link>
               </li>
               <li>
-                <Link to="/portfolio" className={styles.link}>Портфолио</Link>
+                <Link to="/portfolio" className={styles.link}>
+                  Портфолио
+                </Link>
+              </li>
+              <li>
+                <Link to="/commercial" className={styles.link}>
+                  Дизайнерам и прорабам
+                </Link>
               </li>
             </ul>
           </div>
@@ -53,10 +75,10 @@ const Footer = () => {
               <span>Барнаул, Алтайский край</span>
             </p>
             <p className={styles.contactItem}>
-              <span className={styles.label}>Email:</span>
+              {/* <span className={styles.label}>Email:</span>
               <a href="mailto:info@chepurnov-decor.ru" className={styles.contactLink}>
                 info@chepurnov-decor.ru
-              </a>
+              </a> */}
             </p>
             <p className={styles.contactItem}>
               <span className={styles.label}>Телефон:</span>
