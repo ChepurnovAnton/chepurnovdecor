@@ -23,12 +23,7 @@ const PortfolioGallery = () => {
   // вычислим безопасно массив изображений до хуков
   const images = (item && (item.image || item.images)) || [];
   const videos = (item && item.videos) || [];
-
-
-
-
-  console.log(data);
-  
+  const imagesLength = images.length;
 
   // хуки должны быть вызваны всегда, до любых return
   const [modalOpen, setModalOpen] = useState(false);
@@ -42,12 +37,12 @@ const PortfolioGallery = () => {
   const closeModal = () => setModalOpen(false);
 
   const showPrev = useCallback(
-    () => setCurrentIndex((i) => (i - 1 + images.length) % images.length),
-    [images.length],
+    () => setCurrentIndex((i) => (i - 1 + imagesLength) % imagesLength),
+    [imagesLength],
   );
   const showNext = useCallback(
-    () => setCurrentIndex((i) => (i + 1) % images.length),
-    [images.length],
+    () => setCurrentIndex((i) => (i + 1) % imagesLength),
+    [imagesLength],
   );
 
   useEffect(() => {
@@ -90,7 +85,7 @@ const PortfolioGallery = () => {
 
       {videos && videos.length > 0 && (
         <div className={styles.videosSection}>
-          <h2 className={styles.videosTitle}>Видео</h2>
+          <h2 className={styles.videosTitle}>Видеообзор объекта</h2>
           <div className={styles.videosGrid}>
             {videos.map((video) => (
               <VideoBlock
