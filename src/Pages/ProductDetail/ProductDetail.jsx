@@ -17,8 +17,6 @@ const ProductDetail = () => {
 
   const product = data?.data?.find((item) => item.id === parseInt(id));
 
-  console.log(product);
-
   if (!product) {
     return (
       <div className={styles.notFound}>
@@ -69,7 +67,8 @@ const ProductDetail = () => {
                 );
               }
             } catch (e) {
-              // ignore storage errors
+              console.log(e);
+              
             }
             navigate("/catalog");
           }}
@@ -129,7 +128,10 @@ const ProductDetail = () => {
 
             <div className={styles.priceContainer}>
               <span className={styles.price}>От {product.price} ₽/м²</span>
-              <span className={styles.priceInfo}>* Стоимость зависит от площади покрытия, колеровки и конструкции поверхности</span>
+              <span className={styles.priceInfo}>
+                *Стоимость зависит от площади покрытия, колеровки и конструкции
+                поверхности
+              </span>
             </div>
 
             <div className={styles.accordion}>
@@ -146,15 +148,25 @@ const ProductDetail = () => {
               </button>
               {expandedAccordion === "description" && (
                 <div className={styles.accordionContent}>
-                  <p className={styles.descriptionText}>{product.description || "Описание товара отсутствует"}</p>
+                  <p className={styles.descriptionText}>
+                    {product.description || "Описание товара отсутствует"}
+                  </p>
                   <div className={styles.preparationSection}>
-                    <p className={styles.preparationText}>Требуемая подготовка поверхности:</p>
-                    <p className={styles.preparation}>{product.preparation || "Информация отсутствует"}</p>
+                    <p className={styles.preparationText}>
+                      Требуемая подготовка поверхности:
+                    </p>
+                    <p className={styles.preparation}>
+                      {product.preparation || "Информация отсутствует"}
+                    </p>
                   </div>
 
                   <div className={styles.exploitationSection}>
-                    <p className={styles.exploitationLabel}>Эксплуатационные характеристики:</p>
-                    <p className={styles.exploitationValue}>{product.exploitation || "Информация отсутствует"}</p>
+                    <p className={styles.exploitationLabel}>
+                      Эксплуатационные характеристики:
+                    </p>
+                    <p className={styles.exploitationValue}>
+                      {product.exploitation || "Информация отсутствует"}
+                    </p>
                   </div>
                 </div>
               )}
