@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import styles from './PortfolioCard.module.css'
 
-const PortfolioCard = ({ id, item, title, description, images }) => {
+const PortfolioCard = ({ id, item, title, images }) => {
     const image = images && images.length > 0 ? images[0].url : '';
     const navigate = useNavigate();
 

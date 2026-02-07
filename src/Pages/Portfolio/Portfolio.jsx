@@ -10,10 +10,7 @@ const Portfolio = () => {
 
     const { data, isLoading, isError } = useGetPortfolioQuery();
     if (isLoading) return <section className={styles.portfolioSection}><GalleryLoadingSkeleton /></section>;
-    if (isError) return <ErrorMessage />;
-
-    console.log(data.data);
-    
+    if (isError) return <ErrorMessage />;    
   return (
     <section className={styles.portfolioSection}>
       <h1 className={styles.portfolioTitle}>Примеры моих работ на объектах и в готовом интерьере</h1>

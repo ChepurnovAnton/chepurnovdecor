@@ -1,61 +1,69 @@
-import React, { useState, useEffect, useCallback } from "react"
-import { useLocation, useParams, useNavigate } from "react-router-dom"
-import styles from "./PortfolioGallery.module.css"
-import { useGetPortfolioQuery } from "../../store/api"
+import React, { useState, useEffect, useCallback } from "react";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
+import styles from "./PortfolioGallery.module.css";
+import { useGetPortfolioQuery } from "../../store/api";
 import { MdOutlineZoomOutMap } from "react-icons/md";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import VideoBlock from "../../components/VideoBlock/VideoBlock";
 
 const PortfolioGallery = () => {
-  const { id } = useParams()
-  const location = useLocation()
-  const navigate = useNavigate()
-  const stateItem = location.state && location.state.item
+  const { id } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const stateItem = location.state && location.state.item;
   const { data, isLoading, isError } = useGetPortfolioQuery();
-  
+
   // Импорт ErrorMessage добавится отдельно
 
-  let item = stateItem
+  let item = stateItem;
   if (!item && data && data.data) {
-    item = data.data.find((p) => String(p.id) === String(id))
+    item = data.data.find((p) => String(p.id) === String(id));
   }
 
   // вычислим безопасно массив изображений до хуков
-  const images = (item && (item.image || item.images)) || []
+  const images = (item && (item.image || item.images)) || [];
+  const videos = (item && item.videos) || [];
+
+
+
+
+  console.log(data);
+  
 
   // хуки должны быть вызваны всегда, до любых return
-  const [modalOpen, setModalOpen] = useState(false)
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const openModal = (index) => {
-    setCurrentIndex(index)
-    setModalOpen(true)
-  }
+    setCurrentIndex(index);
+    setModalOpen(true);
+  };
 
-  const closeModal = () => setModalOpen(false)
+  const closeModal = () => setModalOpen(false);
 
   const showPrev = useCallback(
-    () => setCurrentIndex((i) => (images.length ? (i - 1 + images.length) % images.length : 0)),
-    [images.length]
-  )
+    () => setCurrentIndex((i) => (i - 1 + images.length) % images.length),
+    [images.length],
+  );
   const showNext = useCallback(
-    () => setCurrentIndex((i) => (images.length ? (i + 1) % images.length : 0)),
-    [images.length]
-  )
+    () => setCurrentIndex((i) => (i + 1) % images.length),
+    [images.length],
+  );
 
   useEffect(() => {
-    if (!modalOpen) return
+    if (!modalOpen) return;
     const onKey = (e) => {
-      if (e.key === "Escape") closeModal()
-      if (e.key === "ArrowLeft") showPrev()
-      if (e.key === "ArrowRight") showNext()
-    }
-    window.addEventListener("keydown", onKey)
-    return () => window.removeEventListener("keydown", onKey)
-  }, [modalOpen, showPrev, showNext])
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [modalOpen, showPrev, showNext]);
 
-  if (isLoading) return <p>Загрузка...</p>
+  if (isLoading) return <p>Загрузка...</p>;
   if (isError) return <ErrorMessage />;
-  if (!item) return <p>Элемент не найден.</p>
+  if (!item) return <p>Элемент не найден.</p>;
 
   return (
     <section className={styles.gallerySection}>
@@ -67,7 +75,7 @@ const PortfolioGallery = () => {
 
       <div className={styles.imagesGrid}>
         {images.map((img, idx) => {
-          const src = img.url || (img && img[0] && img[0].url) || ""
+          const src = img.url || (img && img[0] && img[0].url) || "";
           return (
             <div key={idx} className={styles.imageWrap}>
               <img
@@ -75,17 +83,32 @@ const PortfolioGallery = () => {
                 alt={`${item.title || item.name} ${idx + 1}`}
                 onClick={() => openModal(idx)}
               />
-
             </div>
-          )
+          );
         })}
       </div>
+
+      {videos && videos.length > 0 && (
+        <div className={styles.videosSection}>
+          <h2 className={styles.videosTitle}>Видео</h2>
+          <div className={styles.videosGrid}>
+            {videos.map((video) => (
+              <VideoBlock
+                key={video.id}
+                videoUrl={video.url}
+                thumbnail={item.previewVideo && item.previewVideo.url}
+                title={video.title}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
       {modalOpen && (
         <div
           className={styles.modalOverlay}
           onClick={(e) => {
-            if (e.target === e.currentTarget) closeModal()
+            if (e.target === e.currentTarget) closeModal();
           }}
         >
           <button
@@ -98,8 +121,8 @@ const PortfolioGallery = () => {
           <button
             className={styles.modalPrev}
             onClick={(e) => {
-              e.stopPropagation()
-              showPrev()
+              e.stopPropagation();
+              showPrev();
             }}
             aria-label="Previous"
           >
@@ -111,7 +134,9 @@ const PortfolioGallery = () => {
                 className={styles.modalImage}
                 src={
                   images[currentIndex].url ||
-                  (images[currentIndex] && images[currentIndex][0] && images[currentIndex][0].url) ||
+                  (images[currentIndex] &&
+                    images[currentIndex][0] &&
+                    images[currentIndex][0].url) ||
                   ""
                 }
                 alt={`Preview ${currentIndex + 1}`}
@@ -121,8 +146,8 @@ const PortfolioGallery = () => {
           <button
             className={styles.modalNext}
             onClick={(e) => {
-              e.stopPropagation()
-              showNext()
+              e.stopPropagation();
+              showNext();
             }}
             aria-label="Next"
           >
@@ -131,7 +156,7 @@ const PortfolioGallery = () => {
         </div>
       )}
     </section>
-  )
-}
+  );
+};
 
-export default PortfolioGallery
+export default PortfolioGallery;
