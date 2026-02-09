@@ -70,7 +70,7 @@ const About = () => {
 
         <div className={styles.featureImg}>
           <img
-            src="public/2019-10-04 20-41-09.JPG"
+            src="/2019-10-04 20-41-09.JPG"
             alt="Антон Чепурнов - Декоративная штукатурка"
             className={styles.aboutImage}
           />
