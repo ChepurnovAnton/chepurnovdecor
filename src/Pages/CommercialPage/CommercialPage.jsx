@@ -27,9 +27,6 @@ const CommercialPage = () => {
       <p className={styles.commercialPageIntro}>
         Буду рад долгосрочному сотрудничеству и совместным проектам.
       </p>
-      <p className={styles.commercialPageIntro}>
-        Бонус за предоставленный объект обсуждается индивидуально.
-      </p>
     </section>
   );
 };
