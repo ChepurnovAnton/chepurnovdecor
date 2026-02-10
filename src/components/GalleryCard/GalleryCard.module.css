@@ -84,6 +84,38 @@
   top: 10px;
   left: 10px;
 }
+
+/* Slider dots - только на мобильных */
+.sliderDots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  gap: 6px;
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  padding: 0;
+}
+
+.dot:active {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.activeDot {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.2);
+}
+
 /* Адаптивные стили для планшетов и мобильных */
 @media (max-width: 1024px) {
   .card {
@@ -127,6 +159,10 @@
     font-size: 11px;
     padding: 4px 8px;
   }
+
+  .sliderDots {
+    display: flex;
+  }
 }
 
 @media (max-width: 480px) {
@@ -154,5 +190,15 @@
     padding: 3px 6px;
     top: 6px;
     left: 6px;
+  }
+
+  .sliderDots {
+    bottom: 8px;
+    gap: 5px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
   }
 }

@@ -2,6 +2,97 @@
   padding: 70px;
 }
 
+/* Additional modal styles to match ProductDetail layout */
+.imageModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalContent {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.enlargedImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.modalClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalClose:hover { background-color: rgba(255,255,255,0.4); }
+
+.modalPrevButton,
+.modalNextButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  font-size: 30px;
+  padding: 16px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 100;
+  transition: background-color 0.3s;
+}
+
+.modalPrevButton:hover,
+.modalNextButton:hover { background-color: rgba(255,255,255,0.4); }
+
+.modalPrevButton { left: 20px; }
+.modalNextButton { right: 20px; }
+
+@media (max-width: 1024px) {
+  .modalContent { width: 95vw; height: 80vh; }
+}
+
+@media (max-width: 600px) {
+  .modalContent { width: 95vw; height: 95vh; }
+  .modalClose { width: 36px; height: 36px; font-size: 20px; top: 30px; right: 10px; }
+  .modalPrevButton, .modalNextButton { font-size: 24px; padding: 12px 16px; }
+}
+
 .backButton {
   color: #000;
   display: inline-block;
@@ -113,11 +204,12 @@
 }
 
 .modalContent {
-  max-width: 90vw;
-  max-height: 90vh;
+  position: relative;
+  width: 90vw;
+  height: 90vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .modalImage {

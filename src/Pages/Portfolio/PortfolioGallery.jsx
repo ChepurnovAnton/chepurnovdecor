@@ -103,53 +103,61 @@ const PortfolioGallery = () => {
 
       {modalOpen && (
         <div
-          className={styles.modalOverlay}
-          onClick={(e) => {
-            if (e.target === e.currentTarget) closeModal();
-          }}
+          className={styles.imageModal}
+          onClick={() => closeModal()}
         >
-          <button
-            className={styles.modalClose}
-            onClick={closeModal}
-            aria-label="Close"
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
           >
-            <IoIosClose size={30} />
-          </button>
-          <button
-            className={styles.modalPrev}
-            onClick={(e) => {
-              e.stopPropagation();
-              showPrev();
-            }}
-            aria-label="Previous"
-          >
-            ‹
-          </button>
-          <div className={styles.modalContent}>
+            <button
+              className={styles.modalClose}
+              onClick={closeModal}
+              aria-label="Close"
+            >
+              <IoIosClose size={30} />
+            </button>
+
             {images[currentIndex] && (
               <img
-                className={styles.modalImage}
-                src={ 'https://api.chepurnovdecor.ru/' +
-                  images[currentIndex].url ||
-                  (images[currentIndex] &&
-                    images[currentIndex][0] &&
-                    images[currentIndex][0].url) ||
-                  ""
+                className={styles.enlargedImage}
+                src={
+                  'https://api.chepurnovdecor.ru/' +
+                  (images[currentIndex].url ||
+                    (images[currentIndex] &&
+                      images[currentIndex][0] &&
+                      images[currentIndex][0].url) ||
+                    "")
                 }
                 alt={`Preview ${currentIndex + 1}`}
               />
             )}
+
+            {imagesLength > 1 && (
+              <>
+                <button
+                  className={styles.modalPrevButton}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    showPrev();
+                  }}
+                  aria-label="Previous"
+                >
+                  &#10094;
+                </button>
+                <button
+                  className={styles.modalNextButton}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    showNext();
+                  }}
+                  aria-label="Next"
+                >
+                  &#10095;
+                </button>
+              </>
+            )}
           </div>
-          <button
-            className={styles.modalNext}
-            onClick={(e) => {
-              e.stopPropagation();
-              showNext();
-            }}
-            aria-label="Next"
-          >
-            ›
-          </button>
         </div>
       )}
     </section>
