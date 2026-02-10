@@ -281,7 +281,7 @@ background-color: rgba(255, 255, 255, 0.2);
     gap: 12px;
   }
   .imageWrap img {
-    height: 300px;
+    height: 400px;
   }
   .modalPrev, .modalNext {
     width: 48px;
@@ -322,7 +322,7 @@ background-color: rgba(255, 255, 255, 0.2);
     gap: 10px;
   }
   .imageWrap img {
-    height: 220px;
+    height: 350px;
     border-radius: 6px;
   }
   .modalContent {
