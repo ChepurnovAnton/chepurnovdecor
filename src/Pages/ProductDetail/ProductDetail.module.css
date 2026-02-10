@@ -384,7 +384,10 @@
 }
 
 .backButton {
+  color: #000;
   display: inline-block;
+  display: flex;
+  align-items: center;
   margin-bottom: 30px;
   background-color: #f0f0f0;
   border: 1px solid #ddd;
@@ -750,7 +753,7 @@
     width: 36px;
     height: 36px;
     font-size: 20px;
-    top: 60px;
+    top: 30px;
     right: 10px;
   }
 

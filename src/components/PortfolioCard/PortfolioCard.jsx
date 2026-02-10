@@ -1,4 +1,3 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import styles from './PortfolioCard.module.css'
@@ -17,9 +16,8 @@ const PortfolioCard = ({ id, item, title, images }) => {
     <article className={styles.portfolioCard} onClick={handleOpen} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter') handleOpen(); }}>
         <div className={styles.portfolioCardContent}>
             <h3 className={styles.portfolioCardTitle}>{title}</h3>
-            {/* <p className={styles.portfolioCardDescription}>{description}</p>    */}
         </div>
-        <img className={styles.portfolioCardImage}  src={image} alt="Portfolio Card Image" />
+        <img className={styles.portfolioCardImage}  src={'https://api.chepurnovdecor.ru/' + image} alt="Portfolio Card Image" />
     </article>
   )
 }

@@ -1,6 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useGetGalleryQuery } from "../../store/api";
+import { IoIosClose } from "react-icons/io";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import styles from "./ProductDetail.module.css";
 
@@ -74,7 +76,8 @@ const ProductDetail = () => {
           }}
           className={styles.backButton}
         >
-          ← Вернуться в каталог
+          <IoIosArrowRoundBack size={20} className={styles.backIcon} />
+          Вернуться в каталог
         </button>
 
         <article className={styles.product}>
@@ -87,7 +90,7 @@ const ProductDetail = () => {
                     className={`${styles.thumbnail} ${activeImageIndex === index ? styles.active : ""}`}
                     onClick={() => setActiveImageIndex(index)}
                   >
-                    <img src={pic.url} alt={`${product.name} ${index + 1}`} />
+                    <img src={'https://api.chepurnovdecor.ru/' + pic.url} alt={`${product.name} ${index + 1}`} />
                   </button>
                 ))}
               </div>
@@ -95,7 +98,7 @@ const ProductDetail = () => {
             {currentImage && (
               <div className={styles.mainImageContainer}>
                 <img
-                  src={currentImage.url}
+                  src={'https://api.chepurnovdecor.ru/' + currentImage.url}
                   alt={product.name}
                   className={styles.productImage}
                   onClick={() => setIsImageEnlarged(true)}
@@ -206,10 +209,10 @@ const ProductDetail = () => {
                 onClick={() => setIsImageEnlarged(false)}
                 aria-label="Закрыть"
               >
-                ✕
+                <IoIosClose size={30} />
               </button>
               <img
-                src={currentImage?.url}
+                src={ 'https://api.chepurnovdecor.ru/' + currentImage?.url}
                 alt={product.name}
                 className={styles.enlargedImage}
               />

@@ -2,9 +2,10 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import styles from "./PortfolioGallery.module.css";
 import { useGetPortfolioQuery } from "../../store/api";
-import { MdOutlineZoomOutMap } from "react-icons/md";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import VideoBlock from "../../components/VideoBlock/VideoBlock";
+import { IoIosClose } from "react-icons/io";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 const PortfolioGallery = () => {
   const { id } = useParams();
@@ -63,7 +64,8 @@ const PortfolioGallery = () => {
   return (
     <section className={styles.gallerySection}>
       <button className={styles.backButton} onClick={() => navigate(-1)}>
-        ← Вернуться в портфолио
+        <IoIosArrowRoundBack size={20} className={styles.backIcon} />
+        Вернуться в портфолио
       </button>
       <h1 className={styles.title}>{item.title || item.name}</h1>
       <p className={styles.description}>{item.description}</p>
@@ -74,7 +76,7 @@ const PortfolioGallery = () => {
           return (
             <div key={idx} className={styles.imageWrap}>
               <img
-                src={src}
+                src={'https://api.chepurnovdecor.ru/' + src}
                 alt={`${item.title || item.name} ${idx + 1}`}
                 onClick={() => openModal(idx)}
               />
@@ -111,7 +113,7 @@ const PortfolioGallery = () => {
             onClick={closeModal}
             aria-label="Close"
           >
-            ✕
+            <IoIosClose size={30} />
           </button>
           <button
             className={styles.modalPrev}
@@ -127,7 +129,7 @@ const PortfolioGallery = () => {
             {images[currentIndex] && (
               <img
                 className={styles.modalImage}
-                src={
+                src={ 'https://api.chepurnovdecor.ru/' +
                   images[currentIndex].url ||
                   (images[currentIndex] &&
                     images[currentIndex][0] &&

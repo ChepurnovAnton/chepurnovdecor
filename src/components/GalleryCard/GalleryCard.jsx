@@ -26,7 +26,7 @@ const GalleryCard = ({ id, url, name, price, popular }) => {
     >
       <article className={styles.card}>
       <div className={styles.imageWrapper}>
-        <img className={styles.img} src={imageUrl} alt={name} />
+        <img className={styles.img} src= {'https://api.chepurnovdecor.ru/' + imageUrl} alt={name} />
         {/* Иконка лупы при наведении */}
         <div className={styles.searchIcon}>
           <MdOutlineZoomOutMap color='white' size={50} />

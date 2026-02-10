@@ -9,20 +9,21 @@ const VideoBlock = ({ videoUrl, thumbnail, title }) => {
     <div className={styles.videoBlockWrapper}>
       <div className={styles.videoContainer}>
         {isPlaying ? (
-          <iframe
+          <video
             className={styles.videoFrame}
-            src={videoUrl + "?autoplay=1"}
             title={title || "Video"}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+            controls
+            autoPlay
+          >
+            <source src={'https://api.chepurnovdecor.ru/' + videoUrl} type="video/mp4" />
+            Ваш браузер не поддерживает воспроизведение видео.
+          </video>
         ) : (
           <div
             className={styles.videoPreview}
             onClick={() => setIsPlaying(true)}
             style={{
-              backgroundImage: thumbnail ? `url(${thumbnail})` : "none",
+              backgroundImage: thumbnail ? `url(${'https://api.chepurnovdecor.ru/' + thumbnail})` : "none",
               backgroundColor: !thumbnail ? "#000000" : "transparent",
             }}
           >
