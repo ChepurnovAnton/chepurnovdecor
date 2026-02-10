@@ -3,13 +3,18 @@
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
   margin: 0;
-  grid-template-areas: 
-  '. header .'
-  '. main .'
-  '. footer .'
-  ;
+  grid-template-areas:
+    ". header ."
+    ". main ."
+    ". footer .";
 
   grid-template-columns: 15px 1fr 15px;
+}
+
+@media (max-width: 768px) {
+  .conteiner {
+    grid-template-columns: 10px 1fr 10px;
+  }
 }
 
 .main {

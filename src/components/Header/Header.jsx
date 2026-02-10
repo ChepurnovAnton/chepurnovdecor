@@ -169,9 +169,6 @@ const Header = () => {
       {/* Использует 2-колонную сетку для компактного отображения элементов меню */}
       {isMenuOpen && (
         <>
-          {/* Затемняющий overlay - закрывает меню при клике */}
-          <div className={styles.menuOverlay} onClick={closeMenu}></div>
-
           <nav className={styles.mobileMenu}>
             <div className={styles.mobileMenuGrid}>
               <Link
