@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Gallery from "../../components/Gallery/Gallery";
 import GalleryCategory from "../../components/GalleryCategory/GalleryCategory";
 import { GalleryLoadingSkeleton, CategoriesLoadingSkeleton } from "../../components/LoadingSkeleton/LoadingSkeleton";
@@ -8,7 +8,15 @@ import Pagination from "../../components/Pagination/Pagination";
 
 const Catalog = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(() => {
+    try {
+      const stored = sessionStorage.getItem("catalogPage");
+      const p = stored ? parseInt(stored, 10) : 1;
+      return !isNaN(p) && p > 0 ? p : 1;
+    } catch (e) {
+      return 1;
+    }
+  });
   const itemsPerPage = 8;
   
   const { data, error, isLoading } = useGetGalleryQuery();
@@ -33,6 +41,11 @@ const Catalog = () => {
   const handleCategoryChange = (categoryId) => {
     setSelectedCategoryId(categoryId);
     setCurrentPage(1);
+    try {
+      sessionStorage.setItem("catalogPage", "1");
+    } catch (e) {
+      // ignore
+    }
   };
 
   // Скролим к верхушке при смене страницы
@@ -42,6 +55,15 @@ const Catalog = () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }, 0);
   };
+
+  // Сохраняем текущую страницу в sessionStorage, чтобы её можно было восстановить при возврате
+  useEffect(() => {
+    try {
+      sessionStorage.setItem("catalogPage", String(currentPage));
+    } catch (e) {
+      // ignore
+    }
+  }, [currentPage]);
 
   return (
     <>
