@@ -25,7 +25,7 @@ const CommercialPage = () => {
       </ul>
 
       <p className={styles.commercialPageIntro}>
-        Буду рад долгосрочному сотрудничеству и совместным проектам.
+        Буду рад долгосрочному сотрудничеству и совместным проектам. ntct
       </p>
     </section>
   );
