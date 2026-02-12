@@ -11,7 +11,7 @@ const Home = () => {
         <div className={styles.hero}>
               <div className={styles.heroInner}>
                 <img
-                  src="/6d0d3395656f6e2154ada51cd6b60c30_0_1.jpeg.jpg"
+                  src="/home.jpg"
                   alt="Chepurnov Decor - Декоративная штукатурка"
                   className={styles.heroImage}
                 />
