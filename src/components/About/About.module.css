@@ -6,9 +6,10 @@
   color: #282828;
   display: flex;
   flex-direction: column;
+  justify-content: end;
   gap: 10px;
   padding-top: 20px;
-  /* margin-top: 10px; */
+  margin-top: 20px;
 }
 
 .about {
@@ -19,7 +20,7 @@
 .aboutContent {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: 0.6fr auto;
   gap: 50px;
   justify-content: space-between;
 }
@@ -30,7 +31,7 @@
   background-color: #ff6f61;
   border-radius: 16px;
   width: 100%;
-  height: 950px;
+  height: 100%;
 }
 
 .featureImg img {
@@ -120,11 +121,11 @@
 
 .features {
   grid-column-start: 1;
-  grid-row-start: 2;
+  /* grid-row-start: 2; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   /* row-gap: 20px; */
-  align-self: end;
+  /* align-self: end; */
 }
 
 .featureNumber {
