@@ -1,5 +1,6 @@
 import styles from "./About.module.css";
 import { Link } from "react-router-dom";
+import { BsCheck } from "react-icons/bs";
 
 const About = () => {
   return (
@@ -8,36 +9,57 @@ const About = () => {
         <div className={styles.aboutTextBlock}>
           <p className={styles.aboutTitle}>Обо мне</p>
           <div className={styles.aboutText}>
-            <span className={styles.aboutName}>Меня зовут Чепурнов Антон</span>
-            <span className={styles.aboutDescription}>
-              Я предоставляю услуги по нанесению <b>декоративных покрытий</b> и
-              <b> покраске безвоздушным способом</b>.
-            </span>
-            <span className={styles.aboutDescription}>
-              В работе я использую материалы премиального качества марки:
-              <b> Derufa</b>, что гарантирует высокое
-              качество результата.
-            </span>
-            <span className={styles.aboutDescription}>
-              Большой выбор фактур под любой стиль и помещения:{" "}
-              <b>венецианская, марроканская, травертин, бетон, шелк</b> и многое
-              другое.
-            </span>
-            <span className={styles.aboutDescription}>
-              Регулярное обновление текстур, которые соответсвуют современным тенденциям в дизайне интерьеров.
-            </span>
-            <span className={styles.aboutDescription}>
-              <b>Бесплатная консультация и замер</b>, а также помощь в подборе
-              фактуры и цвета.
-            </span>
-            <span className={styles.aboutDescription}>
-              При необходимости делаю <b>подготовку поверхности</b> для
-              декоративных покрытий.
-            </span>
-            <span className={styles.aboutDescription}>
-              Вся работа выполняется мной лично, никаких посредников и
-              посторонних лиц.
-            </span>
+            <p className={styles.aboutName}>
+              <b>Чепурнов Антон</b>
+            </p>
+            <p className={styles.aboutSubtitle}>
+              Мастер по декоративным покрытиям и безвоздушной покраске
+            </p>
+
+            <p className={styles.aboutDescription}>
+              Я выполняю работы по нанесению <b>декоративных покрытий</b> и{" "}
+              <b>покраске безвоздушным способом</b>. В своей работе использую
+              премиальные материалы <b>Derufa</b>, что гарантирует
+              долговечность, экологичность и безупречное качество результата.
+            </p>
+
+            <p className={styles.aboutDescription}>
+              Предлагаю широкий выбор фактур для любых интерьеров:{" "}
+              <b>венецианская штукатурка</b>, <b>фактурная штукатурка</b>,{" "}
+              <b>имитация мрамора и скалы</b>, <b>бетон</b>, {" "}
+              <b>декоративные краски</b> и другие современные декоративные
+              решения.
+            </p>
+
+            <p className={styles.aboutDescription}>
+              Регулярно обновляю ассортимент текстур, следуя актуальным
+              тенденциям дизайна интерьеров. Это позволяет создавать уникальные
+              покрытия, которые подчёркивают стиль и характер вашего
+              пространства.
+            </p>
+
+            <div className={styles.benefitsList}>
+              <p className={styles.benefitItem}>
+                <BsCheck size={25} />
+                <b>Бесплатная консультация и выезд на замер</b>
+              </p>
+              <p className={styles.benefitItem}>
+                <BsCheck size={25} /> <b>Помощь в подборе фактуры и цвета</b>
+              </p>
+              <p className={styles.benefitItem}>
+                <BsCheck size={25} />{" "}
+                <b>Подготовка поверхности при необходимости</b>
+              </p>
+              <p className={styles.benefitItem}>
+                <BsCheck size={25} />{" "}
+                <b>Все работы выполняю лично, без посредников</b>
+              </p>
+            </div>
+
+            <p className={styles.guarantee}>
+              Гарантирую аккуратность, соблюдение сроков и внимание к деталям на
+              каждом этапе.
+            </p>
             <div className={styles.buttonGroup}>
               <Link to={"/portfolio"}>
                 <button className={styles.portfolioButton}>
