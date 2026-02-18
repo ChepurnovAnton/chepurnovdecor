@@ -70,7 +70,6 @@ const ProductDetail = () => {
               }
             } catch (e) {
               console.log(e);
-              
             }
             navigate("/catalog");
           }}
@@ -90,7 +89,10 @@ const ProductDetail = () => {
                     className={`${styles.thumbnail} ${activeImageIndex === index ? styles.active : ""}`}
                     onClick={() => setActiveImageIndex(index)}
                   >
-                    <img src={'https://api.chepurnovdecor.ru/' + pic.url} alt={`${product.name} ${index + 1}`} />
+                    <img
+                      src={"https://api.chepurnovdecor.ru/" + pic.url}
+                      alt={`${product.name} ${index + 1}`}
+                    />
                   </button>
                 ))}
               </div>
@@ -98,7 +100,7 @@ const ProductDetail = () => {
             {currentImage && (
               <div className={styles.mainImageContainer}>
                 <img
-                  src={'https://api.chepurnovdecor.ru/' + currentImage.url}
+                  src={"https://api.chepurnovdecor.ru/" + currentImage.url}
                   alt={product.name}
                   className={styles.productImage}
                   onClick={() => setIsImageEnlarged(true)}
@@ -178,6 +180,7 @@ const ProductDetail = () => {
             {product.categories && product.categories.length > 0 && (
               <div className={styles.categoriesContainer}>
                 <span className={styles.categoriesLabel}>Категории:</span>
+
                 <div className={styles.categories}>
                   {product.categories.map((cat) => (
                     <span key={cat.id} className={styles.categoryBadge}>
@@ -188,9 +191,31 @@ const ProductDetail = () => {
               </div>
             )}
 
-            {product.popular && (
+            <div className={styles.criteriaSection}>
+              <span className={styles.criteriaLabel}>Расшифровка критериев подготовки поверхности:</span>
+              <span>
+                Q1(базовый): Заделка стыков ГКЛ, подходит для очень толстой
+                фактуры (например, "Скала")
+              </span>
+
+              <span>
+                Q2(стандарт): Чистовое шпатлевание с видимыми следами от
+                образива, подходит для фактур средней толищины
+              </span>
+              <span>
+                Q3(повышенный): Чистовое шпатлевание с полностью отшлифованной
+                поверхностью, допускаются незначительные следы от образива. Подходит для тонких фактур и декоративных красок
+              </span>
+
+              <span>
+                Q4(высокий): Чистовое шпатлевание с идеально отшлифованной
+                поверхностью, подходит для механизированной покраски и очень
+                тонких фактур
+              </span>
+            </div>
+            {/* {product.popular && (
               <div className={styles.popularBadge}>★ Популярное покрытие</div>
-            )}
+            )} */}
           </div>
         </article>
 
@@ -212,7 +237,7 @@ const ProductDetail = () => {
                 <IoIosClose size={30} />
               </button>
               <img
-                src={ 'https://api.chepurnovdecor.ru/' + currentImage?.url}
+                src={"https://api.chepurnovdecor.ru/" + currentImage?.url}
                 alt={product.name}
                 className={styles.enlargedImage}
               />

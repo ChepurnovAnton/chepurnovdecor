@@ -183,6 +183,21 @@
   font-weight: 600;
 }
 
+.criteriaSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #666666;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.criteriaLabel {
+  font-weight: 600;
+  color: #000;
+  font-size: 13px;
+}
+
 /* ========================================== */
 /* АККОРДЕОНЫ */
 /* ========================================== */
