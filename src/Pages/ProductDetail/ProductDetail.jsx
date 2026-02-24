@@ -4,6 +4,7 @@ import { useGetGalleryQuery } from "../../store/api";
 import { IoIosClose } from "react-icons/io";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import { ProductDetailSkeleton } from "../../components/LoadingSkeleton/LoadingSkeleton";
 import styles from "./ProductDetail.module.css";
 
 const ProductDetail = () => {
@@ -14,7 +15,7 @@ const ProductDetail = () => {
   const [isImageEnlarged, setIsImageEnlarged] = useState(false);
   const { data, isLoading, error } = useGetGalleryQuery();
 
-  if (isLoading) return <p>Загрузка...</p>;
+  if (isLoading) return <ProductDetailSkeleton />;
   if (error) return <ErrorMessage />;
 
   const product = data?.data?.find((item) => item.id === parseInt(id));
