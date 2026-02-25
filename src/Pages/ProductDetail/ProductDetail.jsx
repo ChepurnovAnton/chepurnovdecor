@@ -133,11 +133,13 @@ const ProductDetail = () => {
             <h1 className={styles.title}>{product.name}</h1>
 
             <div className={styles.priceContainer}>
-              <span className={styles.price}>От {product.price} ₽/м²</span>
-              <span className={styles.priceInfo}>
-                *Стоимость зависит от площади покрытия, колеровки и конструкции
-                поверхности
-              </span>
+              <span className={styles.price}>{product.price ? `От ${product.price} ₽/м²` : 'Цена договорная'}</span>
+              {product.price && (
+                <span className={styles.priceInfo}>
+                  *Стоимость зависит от площади покрытия, колеровки и конструкции
+                  поверхности
+                </span>
+              )}
             </div>
 
             <div className={styles.accordion}>
